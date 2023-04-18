@@ -238,7 +238,7 @@ public class Login extends JFrame {
 		 String Usuario= "admin";
 	     String Senha="admin";
 
-	        String senhaa=new String (txtSenha.getPassword());
+	        String senhaa = new String (txtSenha.getPassword());
 
 	        if(txtUsuario.getText().equals(Usuario) && senhaa.equals(Senha)){
 	            MenuUsuario menu = new MenuUsuario();

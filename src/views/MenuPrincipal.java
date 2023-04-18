@@ -1,17 +1,13 @@
 package views;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Panel;
 import java.awt.Color;
 import java.awt.SystemColor;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Toolkit;
-import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -55,33 +51,33 @@ public class MenuPrincipal extends JFrame {
 		setUndecorated(true);
 
 		
-		Panel panel = new Panel();
-		panel.setBackground(SystemColor.window);
-		panel.setBounds(0, 0, 910, 537);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		Panel painel = new Panel();
+		painel.setBackground(SystemColor.window);
+		painel.setBounds(0, 0, 910, 537);
+		contentPane.add(painel);
+		painel.setLayout(null);
 		
-		JLabel imagenFondo = new JLabel("");
-		imagenFondo.setBounds(-50, 0, 732, 501);
-		imagenFondo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagenes/menu-img.png")));
-		panel.add(imagenFondo);
+		JLabel imagemFundo = new JLabel("");
+		imagemFundo.setBounds(-50, 0, 732, 501);
+		imagemFundo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagenes/menu-img.png")));
+		painel.add(imagemFundo);
 		
 		JLabel logo = new JLabel("");
 		logo.setBounds(722, 80, 150, 156);
 		logo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagenes/aH-150px.png")));
-		panel.add(logo);
+		painel.add(logo);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 500, 910, 37);
-		panel_1.setBackground(new Color(12, 138, 199));
-		panel.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel painel_1 = new JPanel();
+		painel_1.setBounds(0, 500, 910, 37);
+		painel_1.setBackground(new Color(12, 138, 199));
+		painel.add(painel_1);
+		painel_1.setLayout(null);
 		
 		JLabel lblCopyR = new JLabel("Desenvolvido por Fulanita de Tal © 2023");
 		lblCopyR.setBounds(315, 11, 301, 19);
 		lblCopyR.setForeground(new Color(240, 248, 255));
 		lblCopyR.setFont(new Font("Roboto", Font.PLAIN, 16));
-		panel_1.add(lblCopyR);
+		painel_1.add(lblCopyR);
 		
 		//Barra para controlar la ventana 
 		JPanel header = new JPanel();
@@ -101,9 +97,9 @@ public class MenuPrincipal extends JFrame {
 		});
 		header.setLayout(null);
 		header.setBackground(Color.WHITE);
-		panel.add(header);
+		painel.add(header);
 		
-		//Botón sair
+		//Botão para sair
 		JPanel btnexit = new JPanel();
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
@@ -133,7 +129,7 @@ public class MenuPrincipal extends JFrame {
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
 		
-		//Botón Login
+		//Botão de Login
 		JPanel btnLogin = new JPanel(); 
 		btnLogin.setBounds(754, 300, 83, 70);
 		btnLogin.addMouseListener(new MouseAdapter() {
@@ -147,7 +143,7 @@ public class MenuPrincipal extends JFrame {
 		btnLogin.setLayout(null);
 		btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnLogin.setBackground(SystemColor.window);
-		panel.add(btnLogin);
+		painel.add(btnLogin);
 		
 		JLabel imageLogin = new JLabel("");
 		imageLogin.setBounds(0, 0, 80, 70);
@@ -158,10 +154,28 @@ public class MenuPrincipal extends JFrame {
 		JLabel lblTitulo = new JLabel("LOGIN");
 		lblTitulo.setBounds(754, 265, 83, 24);
 		lblTitulo.setBackground(SystemColor.window);
-		panel.add(lblTitulo);
+		painel.add(lblTitulo);
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setForeground(SystemColor.textHighlight);
 		lblTitulo.setFont(new Font("Roboto Light", Font.PLAIN, 20));
+
+
+		JButton btnSair = new JButton("SAIR");
+		btnSair.setBounds(754, 420, 83, 24);
+		btnSair.setBackground(SystemColor.window);
+		painel.add(btnSair);
+		btnSair.setHorizontalAlignment(SwingConstants.CENTER);
+		btnSair.setForeground(SystemColor.textHighlight);
+		btnSair.setFont(new Font("Roboto Light", Font.PLAIN, 20));
+		btnSair.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int opcao = JOptionPane.showConfirmDialog(contentPane, "Deseja continuar?");
+				if (opcao == 1) {
+					System.exit(0);
+				}
+			}
+		});
 	}
 	
 	//Código que permite movimentar a janela pela tela seguindo a posição de "x" y "y"

@@ -1,12 +1,8 @@
 package views;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -14,12 +10,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
-import javax.swing.SwingConstants;
 import java.awt.event.MouseMotionAdapter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.SystemColor;
-import javax.swing.JSeparator;
 
 @SuppressWarnings("serial")
 public class MenuUsuario extends JFrame {
@@ -239,6 +233,26 @@ public class MenuUsuario extends JFrame {
 	    labelDescricao_4.setFont(new Font("Roboto", Font.PLAIN, 17));
 	    labelDescricao_4.setBounds(312, 520, 295, 27);
 	    contentPane.add(labelDescricao_4);
+
+		JButton btnSair = new JButton("Sair");
+		btnSair.setBounds(25, 450, 205, 34);
+		btnSair.setBackground(SystemColor.window);
+		btnSair.setHorizontalAlignment(SwingConstants.CENTER);
+		btnSair.setForeground(SystemColor.textHighlight);
+		btnSair.setFont(new Font("Roboto Light", Font.PLAIN, 20));
+		contentPane.add(btnSair);
+
+		btnSair.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int opcao = JOptionPane.showConfirmDialog(contentPane, "Deseja continuar?");
+				if (opcao == 1) {
+					Login frame = new Login();
+					frame.setVisible(true);
+					dispose();
+				}
+			}
+		});
 	}
 	
 	//Código que permite movimentar a janela pela tela seguindo a posição de "x" e "y"
