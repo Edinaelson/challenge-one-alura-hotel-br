@@ -247,14 +247,14 @@ public class Buscar extends JFrame {
                 if (!modeloHospedes.getDataVector().isEmpty()) {
                     try {
                         editarHospede();
-                        JOptionPane.showMessageDialog(contentPane,"Dados do usuário alterados com sucesso.");
+                        JOptionPane.showMessageDialog(contentPane, "Dados do usuário alterados com sucesso.");
                     } catch (ParseException ex) {
                         throw new RuntimeException(ex);
                     }
                 } else if (!modelo.getDataVector().isEmpty()) {
                     try {
                         editarReserva();
-                        JOptionPane.showMessageDialog(contentPane,"Dados da reserva alterados com sucesso.");
+                        JOptionPane.showMessageDialog(contentPane, "Dados da reserva alterados com sucesso.");
                     } catch (ParseException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -321,26 +321,56 @@ public class Buscar extends JFrame {
     private void buscarHospedePorNome(String nome) {
         Hospede h = hospedeController.buscarPorNome(nome);
         if (h != null) {
-            modeloHospedes.addRow(new Object[]{h.getId()
-                    , h.getNome()
-                    , h.getSobrenome()
-                    , h.getDataNascimento()
-                    , h.getNacionalidade()
-                    , h.getTelefone()
-                    , h.getReservaId()});
+            if (!ifHospedeExiste(h)) {
+                modeloHospedes.addRow(new Object[]{h.getId()
+                        , h.getNome()
+                        , h.getSobrenome()
+                        , h.getDataNascimento()
+                        , h.getNacionalidade()
+                        , h.getTelefone()
+                        , h.getReservaId()});
+                buscarReservaPorId(h.getReservaId());
+            }
         } else {
             JOptionPane.showMessageDialog(contentPane, "Usuário não existe. Digite um usuário válido");
         }
     }
 
+    private boolean ifHospedeExiste(Hospede h) {
+        boolean idExiste = false;
+        int id = h.getId();
+        for (int i = 0; i < tbHospedes.getRowCount(); i++) {
+            int idTabela = (int) tbHospedes.getValueAt(i, 0);
+            if (idTabela == id) {
+                idExiste = true;
+                break;
+            }
+        }
+        return idExiste;
+    }
+    private boolean ifReservaExiste(Reserva r) {
+        boolean idExiste = false;
+        int id = r.getId();
+        for (int i = 0; i < tbReservas.getRowCount(); i++) {
+            int idTabela = (int) tbReservas.getValueAt(i, 0);
+            if (idTabela == id) {
+                idExiste = true;
+                break;
+            }
+        }
+        return idExiste;
+    }
+
     public void buscarReservaPorId(int idReserva) {
         Reserva r = reservaController.buscarPorId(idReserva);
         if (r != null) {
-            modelo.addRow(new Object[]{r.getId()
-                    , r.getDataEntrada()
-                    , r.getDataSaida()
-                    , r.getValor()
-                    , r.getFormaPagamento()});
+            if (!ifReservaExiste(r)) {
+                modelo.addRow(new Object[]{r.getId()
+                        , r.getDataEntrada()
+                        , r.getDataSaida()
+                        , r.getValor()
+                        , r.getFormaPagamento()});
+            }
         } else {
             JOptionPane.showMessageDialog(contentPane, "Reserva não existe. Digite um reserva válida");
         }
