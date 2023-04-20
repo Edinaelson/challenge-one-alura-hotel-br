@@ -77,7 +77,7 @@ public class Login extends JFrame {
 		JLabel imgHotel = new JLabel("");
 		imgHotel.setBounds(0, 0, 304, 538);
 		panel_1.add(imgHotel);
-		imgHotel.setIcon(new ImageIcon(Login.class.getResource("/imagens/img-hotel-login-.png")));
+		imgHotel.setIcon(new ImageIcon(Objects.requireNonNull(Login.class.getResource("/imagens/img-hotel-login-.png"))));
 		
 		JPanel btnexit = new JPanel();
 		btnexit.setBounds(251, 0, 53, 36);
