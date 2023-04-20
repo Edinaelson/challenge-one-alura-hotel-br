@@ -67,7 +67,7 @@ public class ReservasView extends JFrame {
      */
     public ReservasView() {
         super("Reserva");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(ReservasView.class.getResource("/imagenes/aH-40px.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ReservasView.class.getResource("/imagens/aH-40px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 910, 560);
         setResizable(false);
@@ -109,7 +109,7 @@ public class ReservasView extends JFrame {
 
         txtDataE = new JDateChooser();
         txtDataE.getCalendarButton().setBackground(SystemColor.textHighlight);
-        txtDataE.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/icon-reservas.png")));
+        txtDataE.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource("/imagens/icon-reservas.png")));
         txtDataE.getCalendarButton().setFont(new Font("Roboto", Font.PLAIN, 12));
         txtDataE.setBounds(68, 161, 289, 35);
         txtDataE.getCalendarButton().setBounds(268, 0, 21, 33);
@@ -140,7 +140,7 @@ public class ReservasView extends JFrame {
         panel.add(lblCheckOut);
 
         txtDataS = new JDateChooser();
-        txtDataS.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/icon-reservas.png")));
+        txtDataS.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource("/imagens/icon-reservas.png")));
         txtDataS.getCalendarButton().setFont(new Font("Roboto", Font.PLAIN, 11));
         txtDataS.setBounds(68, 246, 289, 35);
         txtDataS.getCalendarButton().setBounds(267, 1, 21, 31);
@@ -148,7 +148,7 @@ public class ReservasView extends JFrame {
         txtDataS.setFont(new Font("Roboto", Font.PLAIN, 18));
         txtDataS.addPropertyChangeListener(new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent evt) {
-                calcularValor(txtDataE,txtDataS);
+                calcularValor(txtDataE, txtDataS);
             }
         });
         txtDataS.setDateFormatString("yyyy-MM-dd");
@@ -203,13 +203,13 @@ public class ReservasView extends JFrame {
         JLabel logo = new JLabel("");
         logo.setBounds(197, 68, 104, 107);
         panel_1.add(logo);
-        logo.setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/Ha-100px.png")));
+        logo.setIcon(new ImageIcon(ReservasView.class.getResource("/imagens/Ha-100px.png")));
 
         JLabel imagenFondo = new JLabel("");
         imagenFondo.setBounds(0, 140, 500, 409);
         panel_1.add(imagenFondo);
         imagenFondo.setBackground(Color.WHITE);
-        imagenFondo.setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/reservas-img-3.png")));
+        imagenFondo.setIcon(new ImageIcon(ReservasView.class.getResource("/imagens/reservas-img-3.png")));
 
         JPanel btnexit = new JPanel();
         btnexit.addMouseListener(new MouseAdapter() {
@@ -338,35 +338,35 @@ public class ReservasView extends JFrame {
         this.setLocation(x - xMouse, y - yMouse);
     }
 
-	private void cadastrarReserva(){
+    private void cadastrarReserva() {
 
-        String dataEntrada = ((JTextField)txtDataE.getDateEditor().getUiComponent()).getText();
-        String dataSaida = ((JTextField)txtDataS.getDateEditor().getUiComponent()).getText();
+        String dataEntrada = ((JTextField) txtDataE.getDateEditor().getUiComponent()).getText();
+        String dataSaida = ((JTextField) txtDataS.getDateEditor().getUiComponent()).getText();
 
         Reserva reserva = new Reserva(Date.valueOf(dataEntrada)
-                ,Date.valueOf(dataSaida)
+                , Date.valueOf(dataSaida)
                 , BigDecimal.valueOf(Long.parseLong(txtValor.getText()))
-                ,txtFormaPagamento.getSelectedItem().toString());
+                , txtFormaPagamento.getSelectedItem().toString());
 
         reservaController.cadastrar(reserva);
 
-        JOptionPane.showMessageDialog(contentPane,"Registro Salvo, Número de Reserva: " + reserva.getId());
+        JOptionPane.showMessageDialog(contentPane, "Registro Salvo, Número de Reserva: " + reserva.getId());
 
         RegistroHospede registro = new RegistroHospede(reserva.getId());
         registro.setVisible(true);
         dispose();
     }
 
-    private void calcularValor(JDateChooser dataEntrada,JDateChooser dataSaida){
-        if (dataEntrada.getDate() != null && dataSaida.getDate() != null){
+    private void calcularValor(JDateChooser dataEntrada, JDateChooser dataSaida) {
+        if (dataEntrada.getDate() != null && dataSaida.getDate() != null) {
             Calendar inicio = dataEntrada.getCalendar();
             Calendar fim = dataSaida.getCalendar();
             int diaria = 200;
             int dias = -1;
             int valor;
-            while (inicio.before(fim) || inicio.equals(fim)){
+            while (inicio.before(fim) || inicio.equals(fim)) {
                 dias++;
-                inicio.add(Calendar.DATE,1);
+                inicio.add(Calendar.DATE, 1);
             }
             valor = dias * diaria;
             txtValor.setText(String.valueOf(valor));

@@ -39,7 +39,7 @@ public class MenuPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuPrincipal() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagens/aH-40px.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 537);
 		contentPane = new JPanel();
@@ -59,12 +59,12 @@ public class MenuPrincipal extends JFrame {
 		
 		JLabel imagemFundo = new JLabel("");
 		imagemFundo.setBounds(-50, 0, 732, 501);
-		imagemFundo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagenes/menu-img.png")));
+		imagemFundo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagens/menu-img.png")));
 		painel.add(imagemFundo);
 		
 		JLabel logo = new JLabel("");
 		logo.setBounds(722, 80, 150, 156);
-		logo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagenes/aH-150px.png")));
+		logo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagens/aH-150px.png")));
 		painel.add(logo);
 		
 		JPanel painel_1 = new JPanel();
@@ -73,7 +73,7 @@ public class MenuPrincipal extends JFrame {
 		painel.add(painel_1);
 		painel_1.setLayout(null);
 		
-		JLabel lblCopyR = new JLabel("Desenvolvido por Fulanita de Tal © 2023");
+		JLabel lblCopyR = new JLabel("Desenvolvido por Amilton José © 2023");
 		lblCopyR.setBounds(315, 11, 301, 19);
 		lblCopyR.setForeground(new Color(240, 248, 255));
 		lblCopyR.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -149,24 +149,19 @@ public class MenuPrincipal extends JFrame {
 		imageLogin.setBounds(0, 0, 80, 70);
 		btnLogin.add(imageLogin);
 		imageLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		imageLogin.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagenes/login.png")));
+		imageLogin.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagens/login.png")));
 		
 		JLabel lblTitulo = new JLabel("LOGIN");
 		lblTitulo.setBounds(754, 265, 83, 24);
 		lblTitulo.setBackground(SystemColor.window);
 		painel.add(lblTitulo);
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setForeground(SystemColor.textHighlight);
+		lblTitulo.setForeground(SystemColor.controlDkShadow);
 		lblTitulo.setFont(new Font("Roboto Light", Font.PLAIN, 20));
 
 
-		JButton btnSair = new JButton("SAIR");
-		btnSair.setBounds(754, 420, 83, 24);
-		btnSair.setBackground(SystemColor.window);
-		painel.add(btnSair);
-		btnSair.setHorizontalAlignment(SwingConstants.CENTER);
-		btnSair.setForeground(SystemColor.textHighlight);
-		btnSair.setFont(new Font("Roboto Light", Font.PLAIN, 20));
+		JPanel btnSair = new JPanel();
+		btnSair.setBounds(764, 410, 83, 70);
 		btnSair.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -176,6 +171,17 @@ public class MenuPrincipal extends JFrame {
 				}
 			}
 		});
+		btnSair.setLayout(null);
+		btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		btnSair.setBackground(SystemColor.window);
+		painel.add(btnSair);
+
+		JLabel imageSair = new JLabel("");
+		imageSair.setBounds(0, 0, 80, 70);
+		btnSair.add(imageSair);
+		imageSair.setHorizontalAlignment(SwingConstants.CENTER);
+		imageSair.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagens/Sair.png")));
+		
 	}
 	
 	//Código que permite movimentar a janela pela tela seguindo a posição de "x" y "y"
