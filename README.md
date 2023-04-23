@@ -24,7 +24,7 @@
 ☕ Use o Java na versão 8 ou superior para ter compatibilidade. 
 
 
-## 🚧 Projeto proposto pela Oracle One Brasil Turma 4 da formação Back-end com Java juntamente a Alura.
+## 🚧 Projeto proposto pela Oracle Next Education Brasil Turma 4 da formação Back-end com Java juntamente a Alura Latam a maior escola de Tecnologia do país quiçá do mundo ❤️.
 ### O projeto consiste em um Sistema de autenticação de usuários para que somente usuários pertencentes ao hotel possam acessar o sistema;
 Permitir criar, editar e excluir uma reserva para clientes;
 Pesquisar na base de dados toda a informação de clientes e reservas;
