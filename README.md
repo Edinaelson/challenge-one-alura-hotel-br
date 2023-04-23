@@ -31,7 +31,7 @@ Pesquisar na base de dados toda a informação de clientes e reservas;
 Registrar, editar e excluir os dados dos hóspedes;
 Calcule o valor da reserva com base no número de dias da reserva e uma taxa diária com o valor atribuído por você na moeda Real. Por exemplo, se tivermos uma reserva de 3 dias e o valor de nossa diária for de R$200 devemos multiplicar esses 3 dias pelo valor da diária, totalizando R$600. Tudo isso deve ser feito automaticamente e mostrado ao usuário antes de salvar a reserva;
 
-### Menu Principal da Aplicação consiste em um tela de Apresentação do hotel e opções de login e sair da aplicação.
+### Menu Principal da Aplicação consiste em um tela de Apresentação do hotel e opções de fazer login e sair da aplicação.
 <p align="center" >
       <img width="500" heigth="500" src="https://user-images.githubusercontent.com/103237611/233259195-9f0b1364-f6b2-4c61-a508-04913155bd4e.png">
 </p>
@@ -41,7 +41,7 @@ Calcule o valor da reserva com base no número de dias da reserva e uma taxa di�
       <img width="500" heigth="500" src="https://user-images.githubusercontent.com/103237611/233259936-515c6edf-6b86-499e-8b9e-3d6846b5584e.png">
 </p>
 
-### Tela de Menu com opçõs para registrar uma nova reserva e hospede
+### Tela de Menu com opções para registrar uma nova reserva e hospede
 <p align="center" >
       <img width="500" heigth="500" src="https://user-images.githubusercontent.com/103237611/233260130-299601c1-453a-4e4a-b006-f9cae617627a.png">
 </p>
