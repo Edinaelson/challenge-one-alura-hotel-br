@@ -180,7 +180,7 @@ public class MenuPrincipal extends JFrame {
 		imageSair.setBounds(0, 0, 80, 70);
 		btnSair.add(imageSair);
 		imageSair.setHorizontalAlignment(SwingConstants.CENTER);
-		imageSair.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagens/Sair.png")));
+		//imageSair.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagens/Sair.png")));
 		
 	}
 	
